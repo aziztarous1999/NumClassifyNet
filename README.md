@@ -27,7 +27,7 @@ The CNN iteratively learns from the MNIST dataset, adjusting its internal parame
 
 You can try it out in COLAB:
 
-[COLAB LINK](https://colab.research.google.com/drive/15nO-fPEy0w4TqM-P68pySgSVTexn-0zF?usp=sharing)
+[COLAB LINK](https://colab.research.google.com/drive/1TFEywwTXGIMRmPQ3YN9pP7zcMS3_1PDq?usp=sharing)
 
 ## CODE
 Importation des bibliothèques :
@@ -162,7 +162,7 @@ Training Model 2:
 
 Evaluation Model 2:
 ```python
-score = model2.evaluate(X_test, Y_test, verbose=1)
+score =model2.evaluate(X_test, Y_test, verbose=1)
 for name, value in zip(model2.metrics_names, score):
     			print(name, value)
 ```
