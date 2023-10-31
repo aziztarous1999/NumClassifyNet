@@ -43,7 +43,7 @@ from tensorflow.keras.layers import Input, InputLayer,Reshape,Conv2D,  MaxPoolin
 from keras.layers.core import Dense,Dropout, Activation
 ```
 
-Charger la base d’image « MNIST » :
+Load the "MNIST" image dataset:
 ```python
 (X_train, y_train), (X_test, y_test) = mnist.load_data()
 print("Taille de:")
@@ -51,8 +51,7 @@ print("Taille de:")
 print("- Ensemble de test:",format(X_test.shape))
 ```
 
-## CODE
-Affichage de quelque image avec leurs labels :
+Displaying some images with their labels:
 ```python
 for i in range(9):
     plt.subplot(3,3,i+1)# Affichage de quelque image avec leurs labels
@@ -61,8 +60,7 @@ for i in range(9):
     plt.title("Class {}".format(y_train[i]))
 ```
 
-## CODE
-Préparer nos données pour l’apprentissage :
+Prepare our data for training:
 ```python
 X_train = X_train.reshape(60000, 784)
 X_test = X_test.reshape(10000, 784)
@@ -77,8 +75,7 @@ print(y_test[1])
 print(Y_test[1])
 ```
 
-## CODE
-Création du réseau de neurones (Sequential) :
+Creation of the neural network (Sequential):
 ```python
 img_shape_full = (28,28,1)
 nb_classes =10
@@ -102,20 +99,17 @@ model.add(Dense(nb_classes, activation='softmax'))
 # Création du réseau de neurones
 ```
 
-## CODE
-Compilation du modèle :
+Compilation of the model:
 ```python
 model.compile(loss='categorical_crossentropy',metrics=['accuracy'],     optimizer='adam')
 ```
 
-## CODE
-Apprentissage :
+Training:
 ```python
  model.fit(X_train, Y_train,batch_size=128, epochs=10,verbose=1)
 ```
 
-## CODE
-Évaluation :
+Evaluation:
 ```python
 score = m# Apprentissage# Création du réseau de neuronesodel.evaluate(X_test, Y_test, verbose=1)
 for name, value in zip(model.metrics_names, score):
@@ -123,8 +117,7 @@ for name, value in zip(model.metrics_names, score):
 
 ```
 
-## CODE
-Création du réseau de neurones (Model) :
+Creation of the neural network (Model):
 ```python
 inputs = Input(shape=(784,))
 #variable utilisee pour la construction du reseau de neurones.
@@ -152,28 +145,24 @@ outputs = net
 model2 = Model(inputs = inputs, outputs=outputs)
 ```
 
-## CODE
-Compilation du modèle 2 :
+Compilation of Model 2:
 ```python
 model2.compile(loss='categorical_crossentropy',metrics=['accuracy'],     optimizer='adam')
 ```
 
-## CODE
-Apprentissage Model 2 :
+Training Model 2:
 ```python
  model2.fit(X_train, Y_train,batch_size=128, epochs=10,verbose=1)
 ```
 
-## CODE
-Évaluation Model 2 :
+Evaluation Model 2:
 ```python
 score = model2# Évaluation Model2.evaluate(X_test, Y_test, verbose=1)
 for name, value in zip(model2.metrics_names, score):
     			print(name, value)
 ```
 
-## CODE
-Affichage de quelque image avec leurs labels et les prédictions :
+Displaying some images with their labels and predictions:
 ```python
 # La fonction « predict_classes » produit la classe de probabilité la plus élevée selon le classificateur formé pour chaque exemple d'entrée.
 
@@ -188,8 +177,7 @@ for i, incorrect in enumerate(incorrect_indices[:9]):
     plt.title("Predicted {}, Class {}".format(predicted_classes[incorrect],  			y_test[incorrect]))
 ```
 
-## CODE
-Matrice de confusion & rapport de classification :
+Confusion matrix & classification report:
 ```python
 import scikitplot as skplt
 skplt.metrics.plot_confusion_matrix(y_test, predicted_classes,               normalize=False)
