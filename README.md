@@ -35,12 +35,17 @@ Importation des bibliothèques :
 import numpy as np
 import matplotlib.pyplot as plt
 from keras.datasets import mnist
-from keras.utils.np_utils import to_categorical
+from keras.utils import to_categorical
 from sklearn.metrics import confusion_matrix,classification_report
 import scikitplot as skplt
 from keras.models import Sequential,Model
 from tensorflow.keras.layers import Input, InputLayer,Reshape,Conv2D,  MaxPooling2D,Dense, Flatten
-from keras.layers.core import Dense,Dropout, Activation
+from keras.layers import Dense,Dropout, Activation
+"""
+pip install keras==2.0.0
+pip install scikit-plot
+pip install tensorflow
+"""
 ```
 
 Load the "MNIST" image dataset:
@@ -111,7 +116,7 @@ Training:
 
 Evaluation:
 ```python
-score = m# Apprentissage# Création du réseau de neuronesodel.evaluate(X_test, Y_test, verbose=1)
+score = model.evaluate(X_test, Y_test, verbose=1)
 for name, value in zip(model.metrics_names, score):
     			print(name, value)
 
