@@ -162,7 +162,7 @@ Training Model 2:
 
 Evaluation Model 2:
 ```python
-score = model2# Évaluation Model2.evaluate(X_test, Y_test, verbose=1)
+score = model2.evaluate(X_test, Y_test, verbose=1)
 for name, value in zip(model2.metrics_names, score):
     			print(name, value)
 ```
